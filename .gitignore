@@ -1,1 +1,21 @@
-/target
+# Rust
+/target/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local data
+screenshots/
+*.png
+*.jpg
+*.jpeg
+
+# Config (allow template, ignore local)
+config.toml
