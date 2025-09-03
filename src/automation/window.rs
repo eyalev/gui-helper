@@ -200,6 +200,28 @@ impl WindowController {
         }
     }
     
+    pub fn focus_and_maximize_window(window_name: &str) -> Result<()> {
+        // First focus the window, then maximize it
+        Self::focus_window(window_name)?;
+        
+        // Small delay to ensure window is focused before maximizing
+        std::thread::sleep(std::time::Duration::from_millis(100));
+        
+        // Now maximize the focused window
+        Self::maximize_active_window()
+    }
+    
+    pub fn focus_and_unmaximize_window(window_name: &str) -> Result<()> {
+        // First focus the window, then restore it
+        Self::focus_window(window_name)?;
+        
+        // Small delay to ensure window is focused before restoring
+        std::thread::sleep(std::time::Duration::from_millis(100));
+        
+        // Now restore the focused window
+        Self::restore_window()
+    }
+    
     fn fuzzy_match(search_word: &str, text: &str) -> bool {
         // Simple fuzzy matching strategies
         

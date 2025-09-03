@@ -77,6 +77,18 @@ pub enum Commands {
         #[arg(long, help = "List all available windows")]
         list: bool,
     },
+    Window {
+        #[arg(long, help = "Target window name or title")]
+        get: String,
+        #[command(subcommand)]
+        operation: WindowOperation,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum WindowOperation {
+    Maximize,
+    Unmaximize,
 }
 
 fn main() -> Result<()> {
@@ -110,6 +122,9 @@ fn main() -> Result<()> {
         },
         Commands::Focus { window, list } => {
             commands::focus::execute(&config, window.as_deref(), list)
+        },
+        Commands::Window { get, operation } => {
+            commands::window::execute(&config, &get, operation)
         },
     }
 }

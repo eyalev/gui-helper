@@ -7,3 +7,4 @@ pub mod open;
 pub mod maximize;
 pub mod unmaximize;
 pub mod focus;
+pub mod window;
