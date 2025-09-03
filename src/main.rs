@@ -71,6 +71,12 @@ pub enum Commands {
     },
     Maximize,
     Unmaximize,
+    Focus {
+        #[arg(help = "Window name or title to focus on")]
+        window: Option<String>,
+        #[arg(long, help = "List all available windows")]
+        list: bool,
+    },
 }
 
 fn main() -> Result<()> {
@@ -101,6 +107,9 @@ fn main() -> Result<()> {
         },
         Commands::Unmaximize => {
             commands::unmaximize::execute(&config)
+        },
+        Commands::Focus { window, list } => {
+            commands::focus::execute(&config, window.as_deref(), list)
         },
     }
 }

@@ -33,6 +33,9 @@ gui-helper maximize
 # Restore window from maximized state (unmaximize)
 gui-helper unmaximize
 
+# Focus on a specific window by name/title
+gui-helper focus "Chrome"
+
 # View latest screenshot
 gui-helper open --latest
 
@@ -48,7 +51,7 @@ gui-helper config --show
 This is a Rust CLI tool that provides hierarchical grid overlays for AI agent GUI automation. The architecture consists of:
 
 ### Core Modules
-- **commands/**: Command implementations for each CLI subcommand (overview, zoom, click, maximize, unmaximize, config, session, open)
+- **commands/**: Command implementations for each CLI subcommand (overview, zoom, click, maximize, unmaximize, focus, config, session, open)
 - **grid/**: Data structures for grid coordinates and screen areas (`OverviewSquare`, `ZoomSquare`, `ZoomArea`, `ScreenInfo`)
 - **overlay/**: GUI overlay rendering system with window management and drawing
 - **screenshot/**: Screen capture functionality for creating annotated screenshots
@@ -83,3 +86,4 @@ The tool implements a hierarchical approach:
 
 Session data and screenshots are stored in platform-specific data directories under `gui-helper/`.
 - Focus on development for Ubuntu Linux 22.04/24.04
+- after each task, install the updated cli app locally
