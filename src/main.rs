@@ -69,6 +69,8 @@ pub enum Commands {
         #[arg(help = "Specific screenshot path to open")]
         path: Option<String>,
     },
+    Maximize,
+    Unmaximize,
 }
 
 fn main() -> Result<()> {
@@ -93,6 +95,12 @@ fn main() -> Result<()> {
         },
         Commands::Open { latest, path } => {
             commands::open::execute(latest, path)
+        },
+        Commands::Maximize => {
+            commands::maximize::execute(&config)
+        },
+        Commands::Unmaximize => {
+            commands::unmaximize::execute(&config)
         },
     }
 }

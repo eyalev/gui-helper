@@ -4,3 +4,5 @@ pub mod click;
 pub mod config;
 pub mod session;
 pub mod open;
+pub mod maximize;
+pub mod unmaximize;
